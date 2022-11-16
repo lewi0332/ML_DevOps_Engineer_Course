@@ -150,3 +150,13 @@ Here are a few READMEs from some popular projects:
 - (Scikit-learn)[https://github.com/scikit-learn/scikit-learn]
 - (Stack Overflow Blog)[https://github.com/jjrunner/stackoverflow]
 
+## Conclusion
+In this lesson, learned 5 key factors to coding best practices:
+
+1. Writing clean and modular code
+2. Refactoring code
+3. Optimizing code to be more efficient
+4. Writing documentation
+5. Following PEP8 & Linting
+
+With these skills, you are ready to take your coding to the next level! When you first start solving a problem, it is important to focus on getting to a solution. However, once you have a solution, these factors are the key to writing better code. Each of these should be top of mind when you are working with a team, writing code for production, or even just writing code for future you!
