@@ -1,0 +1,30 @@
+root - INFO - Opening ./data/bank_data.csv
+root - INFO - SUCCESS: Read in 10127 rows of data
+root - INFO - SUCCESS: convered CLIENTNUM column to string.
+root - INFO - Creating target varible with name: Churn
+root - INFO - SUCCESS: created target variable.
+root - INFO - Attempting churn view.
+root - INFO - Attempting Customer_age view.
+root - INFO - Attempting Marital_Status view.
+root - INFO - Attempting Total_Trans_Ct view.
+root - INFO - Attempting correlation heat map view.
+root - INFO - Creating encoded column CLIENTNUM
+root - INFO - SUCCESS: created encoded CLIENTNUM column.
+root - INFO - Creating encoded column Gender
+root - INFO - SUCCESS: created encoded Gender column.
+root - INFO - Creating encoded column Education_Level
+root - INFO - SUCCESS: created encoded Education_Level column.
+root - INFO - Creating encoded column Marital_Status
+root - INFO - SUCCESS: created encoded Marital_Status column.
+root - INFO - Creating encoded column Income_Category
+root - INFO - SUCCESS: created encoded Income_Category column.
+root - INFO - Creating encoded column Card_Category
+root - INFO - SUCCESS: created encoded Card_Category column.
+root - INFO - Splitting DataFrame into Features and Target...
+root - INFO - SUCCESS: Split dataframe into 20 "X" features and "y"             target created.
+root - INFO - Splitting data into Train and Test sets
+root - INFO - SUCCESS: Data sets split into 7088 training             rows and 3039 test rows.
+root - INFO - Starting classification report for Random Forest
+root - INFO - SUCCESS: Plot for type Random Forest saved to ./images/random_forest_classif_report.png
+root - INFO - Starting classification report for Logistic Regression
+root - INFO - SUCCESS: Plot for type Logistic Regression saved to ./images/logit_reg_classif_report.png

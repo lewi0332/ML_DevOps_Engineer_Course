@@ -307,3 +307,40 @@ The three levels are:
 - `info`
 - `warning`
 - `error`
+
+## Model Drift
+
+When deploying models into production, it is often the case that the input data changes over time. This shift means that our models may not perform as well over time as they did when the model was originally launched. This process of the model performance degrading over time is known as **model drift**.
+
+In these cases, you may need to retrain your model and launch a new version of it to replace your existing model. This might mean:
+
+- Finding new features
+- Tuning your hyper-parameters
+- Finding a new model altogether
+
+There are two methods we might use to retrain and replace the existing model:
+
+- Automated retraining
+- Non-automated retraining
+
+If you have a model that needs to be updated really frequently, without needing major feature or model changes, then **automated retraining** could be a great way to update. The example above where this type of training might be used is with a fraud model.
+
+Alternatively, other models might require new features or new architectures, which are likely best handled by having a human go in and make changes. These changes to a model likely happen less frequently, as considered with a search engine ranking model. In these cases, **non-automated retraining** is likely the best option. Automating these large changes is likely not worth the additional effort.
+
+ 5 key areas for launching production-ready machine learning models:
+
+- Catching errors
+- Writing tests
+- Writing logs
+- Model drift
+- Automated vs. non-automated retraining
+
+**Key Terms**
+
+- Try-except blocks - are used to check code for errors. Try will execute if no errors occur.
+- Testing - checking that the outcome of your software matches the expected requirements
+- Logging - tracking your production code for informational, warning, and error catching purposes
+- Model drift - the change in inputs and outputs of a machine learning model over time
+- Automated retraining - the automated process of updating production machine learning models
+- Non-automated retraining - a human-centered process of updating production machine learning models
+
