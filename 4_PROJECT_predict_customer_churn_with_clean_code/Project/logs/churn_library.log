@@ -1,0 +1,29 @@
+2022-11-29 21:42:50 - root - INFO - Opening ./data/bank_data.csv
+2022-11-29 21:42:50 - root - INFO - SUCCESS: Read in 10127 rows of data
+2022-11-29 21:42:50 - root - INFO - Creating target varible with name: churn
+2022-11-29 21:42:50 - root - INFO - SUCCESS: created target variable.
+2022-11-29 21:42:50 - root - INFO - Attempting to remove CLIENTNUM from dataframe.
+2022-11-29 21:42:50 - root - INFO - SUCESS: Removed CLIENTNUM from df
+2022-11-29 21:42:50 - root - INFO - Attempting churn view.
+2022-11-29 21:42:50 - root - INFO - Attempting Customer_age view.
+2022-11-29 21:42:50 - root - INFO - Attempting Marital_Status view.
+2022-11-29 21:42:50 - root - INFO - Attempting Total_Trans_Ct view.
+2022-11-29 21:42:51 - root - INFO - Attempting correlation heat map view.
+2022-11-29 21:42:51 - root - INFO - Creating encoded column Gender
+2022-11-29 21:42:51 - root - INFO - SUCCESS: created encoded Gender column.
+2022-11-29 21:42:51 - root - INFO - Creating encoded column Education_Level
+2022-11-29 21:42:51 - root - INFO - SUCCESS: created encoded Education_Level column.
+2022-11-29 21:42:51 - root - INFO - Creating encoded column Marital_Status
+2022-11-29 21:42:51 - root - INFO - SUCCESS: created encoded Marital_Status column.
+2022-11-29 21:42:51 - root - INFO - Creating encoded column Income_Category
+2022-11-29 21:42:51 - root - INFO - SUCCESS: created encoded Income_Category column.
+2022-11-29 21:42:51 - root - INFO - Creating encoded column Card_Category
+2022-11-29 21:42:51 - root - INFO - SUCCESS: created encoded Card_Category column.
+2022-11-29 21:42:51 - root - INFO - Splitting DataFrame into Features and Target...
+2022-11-29 21:42:51 - root - INFO - SUCCESS: Split dataframe into 19 "X" features and "y" target created.
+2022-11-29 21:42:51 - root - INFO - Splitting data into Train and Test sets
+2022-11-29 21:42:51 - root - INFO - SUCCESS: Data sets split into 7088 training rows and 3039 test rows.
+2022-11-29 21:42:58 - root - INFO - Starting classification report for Random Forest
+2022-11-29 21:42:58 - root - INFO - SUCCESS: Plot for type Random Forest saved to ./images/results/
+2022-11-29 21:42:58 - root - INFO - Starting classification report for Logistic Regression
+2022-11-29 21:42:58 - root - INFO - SUCCESS: Plot for type Logistic Regression saved to ./images/results/
