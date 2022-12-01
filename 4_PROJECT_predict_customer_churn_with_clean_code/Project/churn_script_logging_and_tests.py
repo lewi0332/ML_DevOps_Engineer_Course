@@ -1,5 +1,8 @@
 """"
-Module to test churn script functions using Pytest
+Module to test churn script functions using Pytest.
+
+Author: Derrick
+Date: November 2022
 """
 
 import os
@@ -152,13 +155,11 @@ def test_perform_feature_engineering(dff, path):
     except AssertionError as err:
         logging.error("x_test not numeric: %s", err)
     try:
-        for feature in y_train.columns:
-            assert is_numeric_dtype(y_train[feature])
+        assert is_numeric_dtype(y_train)
     except AssertionError as err:
         logging.error("y_train not numeric: %s", err)
     try:
-        for feature in y_test.columns:
-            assert is_numeric_dtype(y_test[feature])
+        assert is_numeric_dtype(y_test)
     except AssertionError as err:
         logging.error("y_test not numeric: %s", err)
 
