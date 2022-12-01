@@ -1,4 +1,3 @@
-# library doc string
 """
 Module with functions for Churn model
 
@@ -7,7 +6,6 @@ Date: November 2022
 """
 
 # import libraries
-# from sklearn.preprocessing import normalize
 import logging
 import os
 from sklearn.model_selection import train_test_split
@@ -22,7 +20,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
- 
 
 os.environ['QT_QPA_PLATFORM'] = 'offscreen'
 
@@ -50,6 +47,7 @@ def import_data(pth, response='churn'):
         logging.info('SUCCESS: Read in %d rows of data', len(dff))
     except FileNotFoundError as err:
         logging.error(err)
+        raise err
     try:
         logging.info("Creating target varible with name: %s", response)
         dff[response] = dff['Attrition_Flag'].apply(
@@ -59,8 +57,10 @@ def import_data(pth, response='churn'):
     except KeyError as err:
         logging.error("FAIL: %(target)s not a column in DF. %(error)s",
                       {'target': response, 'error': err})
+        raise err
     except Exception as err:
         logging.error("FAIL: Could not create column: %s", err)
+        raise err
     try:
         logging.info('Attempting to remove CLIENTNUM from dataframe.')
         dff.drop('CLIENTNUM', axis=1, inplace=True)
@@ -68,6 +68,7 @@ def import_data(pth, response='churn'):
     except KeyError as err:
         logging.error("FAIL: %(target)s not a column in DF. %(error)s",
                       {'target': 'CLIENTNUM', 'error': err})
+        raise err
     return dff
 
 
@@ -92,6 +93,7 @@ def perform_eda(dff):
     except KeyError as err:
         logging.error("FAIL: The Churn column is missing from the dataFrame.\
                 Could not visualize. (%s)", err)
+        raise err
     try:
         logging.info("Attempting Customer_age view.")
         plt.figure(figsize=(20, 10))
@@ -100,6 +102,7 @@ def perform_eda(dff):
     except KeyError as err:
         logging.error("FAIL: The Customer_Age column is missing from the \
                 dataFrame. Could not visualize. (%s)", err)
+        raise err
     try:
         logging.info("Attempting Marital_Status view.")
         plt.figure(figsize=(20, 10))
@@ -108,6 +111,7 @@ def perform_eda(dff):
     except KeyError as err:
         logging.error("FAIL: The Marital_Status column is missing from the \
                 dataFrame. Could not visualize. (%s)", err)
+        raise err
 
     try:
         logging.info("Attempting Total_Trans_Ct view.")
@@ -117,6 +121,7 @@ def perform_eda(dff):
     except KeyError as err:
         logging.error("FAIL: The Total_Trans_Ct column is missing from the \
                 dataFrame. Could not visualize. (%s)", err)
+        raise err
 
     try:
         logging.info("Attempting correlation heat map view.")
@@ -135,6 +140,7 @@ def perform_eda(dff):
     except Exception as err:  # Not sure why this could fail, leaving it open
         logging.error("FAIL: The correlation heatmap failed. \
                 Could not visualize. More info here: %s", err)
+        raise err
 
 
 def encoder_helper(dff, category_lst, response='churn'):
@@ -170,6 +176,7 @@ def encoder_helper(dff, category_lst, response='churn'):
             raise err
         except Exception as err:
             logging.error("FAIL: Could not create column. %s", err)
+            raise err
     return dff
 
 
@@ -206,6 +213,7 @@ rows and %(test_len)d test rows.",
                      {"train_len": len(x_train), "test_len": len(x_test)})
     except Exception as err:
         logging.error("FAIL: Could not split dataset: %s", err)
+        raise err
     return x_train, x_test, y_train, y_test
 
 
@@ -336,14 +344,14 @@ def train_models(x_train, x_test, y_train, y_test):
                                 y_test,
                                 y_train_preds_rf,
                                 y_test_preds_rf,
-                                'Random Forest',
+                                'Random_Forest',
                                 './images/results/')
 
     classification_report_image(y_train,
                                 y_test,
                                 y_train_preds_lr,
                                 y_test_preds_lr,
-                                'Logistic Regression',
+                                'Logistic_Regression',
                                 './images/results/')
 
     # plots
