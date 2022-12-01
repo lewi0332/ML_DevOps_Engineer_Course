@@ -1,0 +1,15 @@
+name: churn
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - shap
+  - ipykernel
+  - scikit-learn
+  - numpy
+  - pandas
+  - seaborn
+  - ipywidgets
+  - jupyter
+  - pylint
+  - pytest

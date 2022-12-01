@@ -31,20 +31,26 @@ Overview of the files and data present in the root directory.
 - [/data](/data/): directory to store data file to be used in model training.
 
 ## Running Files
-How do you run your files? What should happen when you run your files?
+
 
 #### Installation
 
-1. Install necessary libraries using Anaconda
+1. Install necessary libraries using pip
     - `conda env create -f environment.yml`
 
 2. Activate the Envirnoment
     - `conda activate churn`
 
 ### Running main file:
+After installing and activating the conda env above, you can run the primary training file with the command below in the command line.
+
 ```
 python churn_library.py
 ```
+
+Necessary data and folder structure above should be in place before running this. 
+
+The script will load data from the `.csv` in `/data/` directory, transform categorical variables 
 
 ### Running test file:
 
