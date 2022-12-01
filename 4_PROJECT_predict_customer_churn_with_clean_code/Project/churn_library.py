@@ -132,9 +132,9 @@ def perform_eda(dff):
                     linewidths=2)
         plt.savefig('./images/eda/heatmap.png')
     except TypeError as err:
-        logging.error("FAIL: The correlation of the DF failed due to TypeError. \
-                 %s", err)
-    except FileNotFoundError as err: 
+        logging.error("FAIL: The correlation of the DF failed due to \
+            TypeError: %s", err)
+    except FileNotFoundError as err:
         logging.error("FAIL: The correlation heatmap failed. \
                 Could not visualize. More info here: %s", err)
     except Exception as err:  # Not sure why this could fail, leaving it open
@@ -260,6 +260,7 @@ def classification_report_image(y_train,
             to %(path)s because of %(exc)s',
                       {'model': model_type, 'path': output_pth, 'exc': err})
 
+
 def feature_importance_plot(model, x_data, output_pth):
     '''
     creates and stores the feature importances in pth
@@ -321,10 +322,10 @@ def train_models(x_train, x_test, y_train, y_test):
     lrc = LogisticRegression(solver='lbfgs', max_iter=3000)
 
     param_grid = {
-        'n_estimators': [200], #, 500],
+        'n_estimators': [200, 500],
         # `max_features='auto'` has been deprecated in 1.1
         # 'max_features': ['auto', 'sqrt'],
-        'max_depth': [4], #, 5, 100],
+        'max_depth': [4, 5, 100],
         'criterion': ['gini', 'entropy']
     }
 
