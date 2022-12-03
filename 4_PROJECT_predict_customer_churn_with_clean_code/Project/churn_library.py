@@ -259,6 +259,7 @@ def classification_report_image(y_train,
         logging.error('FAIL: could not save classification report %(model)s \
             to %(path)s because of %(exc)s',
                       {'model': model_type, 'path': output_pth, 'exc': err})
+        raise err
 
 
 def feature_importance_plot(model, x_data, output_pth):
@@ -276,14 +277,15 @@ def feature_importance_plot(model, x_data, output_pth):
         logging.info("Starting importance plot")
         # Calculate feature importances
         importances = model.best_estimator_.feature_importances_
-        logging.info("SUCCESS: collected %d important features from model",
+        logging.info("SUCCESS: collected %d important features from model\
+            for feature importance plot",
                      len(importances))
         # Sort feature importances in descending order
         indices = np.argsort(importances)[::-1]
         logging.info("SUCCESS: Gather indices of features important features")
         # Rearrange feature names so they match the sorted feature importances
         names = [x_data.columns[i] for i in indices]
-        logging.info("SUCCCSS: Gathered %d feature names from data.",
+        logging.info("SUCCCSS: Gathered %d feature names to label plot.",
                      len(names))
         # Create plot
         plt.figure(figsize=(20, 5))
@@ -340,52 +342,77 @@ def train_models(x_train, x_test, y_train, y_test):
     y_train_preds_lr = lrc.predict(x_train)
     y_test_preds_lr = lrc.predict(x_test)
 
-    # scores
-    classification_report_image(y_train,
-                                y_test,
-                                y_train_preds_rf,
-                                y_test_preds_rf,
-                                'Random_Forest',
-                                './images/results/')
+    try:
+        # scores
+        classification_report_image(y_train,
+                                    y_test,
+                                    y_train_preds_rf,
+                                    y_test_preds_rf,
+                                    'Random_Forest',
+                                    './images/results/')
 
-    classification_report_image(y_train,
-                                y_test,
-                                y_train_preds_lr,
-                                y_test_preds_lr,
-                                'Logistic_Regression',
-                                './images/results/')
+        classification_report_image(y_train,
+                                    y_test,
+                                    y_train_preds_lr,
+                                    y_test_preds_lr,
+                                    'Logistic_Regression',
+                                    './images/results/')
+    except Exception as err:
+        logging.error("FAIL: could not plot classification report: %s", err)
+    try:
+        # plots
+        plt.figure(figsize=(15, 8))
+        axis = plt.gca()
+        RocCurveDisplay.from_estimator(lrc,
+                                       x_test,
+                                       y_test,
+                                       ax=axis,
+                                       alpha=0.8)
+        RocCurveDisplay.from_estimator(cv_rfc,
+                                       x_test,
+                                       y_test,
+                                       ax=axis,
+                                       alpha=0.8)
+        plt.savefig('./images/results/roc_curve_result.png')
+    except Exception as err:
+        logging.error("FAIL: could not plot Roc Auc report: %s", err)
+    try:
+        # save best models
+        joblib.dump(cv_rfc.best_estimator_, './models/rfc_model.pkl')
+        joblib.dump(lrc, './models/logistic_model.pkl')
+    except Exception as err:
+        logging.error("Could not store model.pkl files: %s", err)
+        raise err
+    try:
+        explainer = shap.TreeExplainer(cv_rfc.best_estimator_)
+        shap_values = explainer.shap_values(x_test)
 
-    # plots
-    plt.figure(figsize=(15, 8))
-    axis = plt.gca()
-    RocCurveDisplay.from_estimator(lrc,
-                                   x_test,
-                                   y_test,
-                                   ax=axis,
-                                   alpha=0.8)
-    RocCurveDisplay.from_estimator(cv_rfc.best_estimator_,
-                                   x_test,
-                                   y_test,
-                                   ax=axis,
-                                   alpha=0.8)
-    plt.savefig('./images/results/roc_curve_result.png')
-
-    # save best model
-    joblib.dump(cv_rfc.best_estimator_, './models/rfc_model.pkl')
-    joblib.dump(lrc, './models/logistic_model.pkl')
-
-    explainer = shap.TreeExplainer(cv_rfc.best_estimator_)
-    shap_values = explainer.shap_values(x_test)
-
-    plt.figure(figsize=(15, 8))
-    axis = plt.gca()
-    shap.summary_plot(shap_values, x_test, plot_type="bar", show=False)
-    plt.savefig('./images/results/feature_importances.png')
+        plt.figure(figsize=(15, 8))
+        axis = plt.gca()
+        shap.summary_plot(shap_values, x_test, plot_type="bar", show=False)
+        plt.savefig('./images/results/shap_values.png')
+    except Exception as err:
+        logging.error("Could not plot shap values: %s", err)
+    try:
+        feature_importance_plot(cv_rfc,
+                                x_train,
+                                './images/results/feature_importances.png')
+    except Exception as err:
+        logging.error("Could not plot feature importance: %s", err)
 
 
 def main(data_path, response):
     """
     Main function to train model.
+    Input
+    ---
+    data_path: str, the path to the csv data file
+    response: str, the name the classification target should be given
+
+    Output
+    ---
+    "Complete" will be printed to the console after successfully
+    saving visuals and serialized models to the directory.
     """
     dff = import_data(data_path, response)
     perform_eda(dff)

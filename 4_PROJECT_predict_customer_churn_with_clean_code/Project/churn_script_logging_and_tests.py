@@ -30,7 +30,7 @@ def path():
 @pytest.fixture()
 def dff(path):
     '''
-    Pytest fixture to pass dataframe to another test.
+    Pytest fixture to pass dataframe to various tests.
     '''
     dff_ = import_data(path[0], path[1])
     return dff_
@@ -39,7 +39,7 @@ def dff(path):
 @pytest.fixture()
 def features(dff, path):
     '''
-    Pytest fixture to store features
+    Pytest fixture to cache feature engineered dataset splits before training.
     '''
     x_train, x_test, y_train, y_test = perform_feature_engineering(
         dff, path[1])
@@ -48,20 +48,19 @@ def features(dff, path):
 
 def test_import(path):
     '''
-    test data import - this example is completed for you to
-    assist with the other test functions
+    test data import - This tests the ability to load the training data.
     '''
     try:
         dff_ = import_data(path[0], path[1])
         logging.info("Testing import_data: SUCCESS")
     except FileNotFoundError as err:
-        logging.error("Testing import_eda: The file wasn't found: %s", err)
+        logging.error("Testing import_data(): The file wasn't found: %s", err)
     try:
         assert dff_.shape[0] > 0
         assert dff_.shape[1] > 0
     except AssertionError as err:
-        logging.error("Testing import_data: The file doesn't appear to have \
-            rows and columns: %s", err)
+        logging.error("Testing import_data(): The file was loaded but,\
+         doesn't appear to have rows and columns: %s", err)
 
 
 def test_eda(dff):
@@ -73,42 +72,50 @@ def test_eda(dff):
     try:
         assert os.path.getsize('./images/eda/churn_distribution.png') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: The churn_distribution image is missing %s", err)
+        logging.error("FAIL perform_eda(): The churn_distribution \
+            image is missing %s", err)
     except AssertionError as err:
-        logging.error("FAIL: The churn_distribution image is empty %s", err)
+        logging.error("FAIL perform_eda(): The churn_distribution \
+            image is empty %s", err)
     try:
         assert os.path.getsize(
             './images/eda/customer_age_distribution.png') > 1
     except FileNotFoundError as err:
         logging.error(
-            "FAIL: The customer age distribution image is missing %s", err)
+            "FAIL perform_eda(): The customer age distribution \
+                image is missing %s", err)
     except AssertionError as err:
         logging.error(
-            "FAIL: The customer age distribution image is empty %s", err)
+            "FAIL perform_eda(): The customer age distribution \
+                image is empty %s", err)
     try:
         assert os.path.getsize(
             './images/eda/marital_status_distribution.png') > 1
     except FileNotFoundError as err:
         logging.error(
-            "FAIL: The marital status distribution image is missing %s", err)
+            "FAIL perform_eda(): The marital status distribution \
+                image is missing %s", err)
     except AssertionError as err:
         logging.error(
-            "FAIL: The marital status distribution image is empty %s", err)
+            "FAIL perform_eda(): The marital status distribution \
+                image is empty %s", err)
     try:
         assert os.path.getsize(
             './images/eda/total_transaction_distribution.png') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: The Total Transactions distribution image is \
-            missing %s", err)
+        logging.error("FAIL perform_eda(): The Total Transactions \
+            distribution image is missing %s", err)
     except AssertionError as err:
         logging.error(
-            "FAIL: The Total Transactions distribution image is empty %s", err)
+            "FAIL perform_eda(): The Total Transactions distribution \
+                image is empty %s", err)
     try:
         assert os.path.getsize('./images/eda/heatmap.png') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: The heatmap image is missing %s", err)
+        logging.error("FAIL perform_eda(): The heatmap image is \
+            missing %s", err)
     except AssertionError as err:
-        logging.error("FAIL: The heatmap image is empty %s", err)
+        logging.error("FAIL perform_eda(): The heatmap image is empty %s", err)
 
 
 def test_encoder_helper(dff, path):
@@ -130,12 +137,14 @@ def test_encoder_helper(dff, path):
         logging.info("SUCCESS: Encoder function ran.")
         assert len(dff_enc.columns) > init_col_cnt
     except AssertionError as err:
-        logging.error("FAIL: Encoded DF has no new columns: %s", err)
+        logging.error("FAIL encoder_helper(): Encoded DF has no \
+            new columns: %s", err)
     try:
         for category in category_lst:
             assert dff[f'{category}_Churn'].dtypes == float
     except AssertionError as err:
-        logging.error("Encoded categories not floats: %s", err)
+        logging.error("FAIL encoder_helper(): Encoded categories \
+            not floats: %s", err)
 
 
 def test_perform_feature_engineering(dff, path):
@@ -148,20 +157,24 @@ def test_perform_feature_engineering(dff, path):
         for feature in x_train.columns:
             assert is_numeric_dtype(x_train[feature])
     except AssertionError as err:
-        logging.error("x_train not numeric: %s", err)
+        logging.error("FAIL perform_feature_engineering(): x_train \
+            not numeric: %s", err)
     try:
         for feature in x_test.columns:
             assert is_numeric_dtype(x_test[feature])
     except AssertionError as err:
-        logging.error("x_test not numeric: %s", err)
+        logging.error("FAIL perform_feature_engineering(): x_test not \
+            numeric: %s", err)
     try:
         assert is_numeric_dtype(y_train)
     except AssertionError as err:
-        logging.error("y_train not numeric: %s", err)
+        logging.error("FAIL perform_feature_engineering(): y_train not \
+            numeric: %s", err)
     try:
         assert is_numeric_dtype(y_test)
     except AssertionError as err:
-        logging.error("y_test not numeric: %s", err)
+        logging.error("FAIL perform_feature_engineering(): y_test not \
+            numeric: %s", err)
 
 
 def test_train_models(features):
@@ -172,16 +185,20 @@ def test_train_models(features):
     try:
         assert os.path.getsize('./images/results/feature_importances.png') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: The feature_importances image is missing %s", err)
+        logging.error("FAIL train_models(): The feature_importances \
+            image is missing %s", err)
     except AssertionError as err:
-        logging.error("FAIL: The feature_importances image is empty %s", err)
+        logging.error("FAIL train_models(): The feature_importances \
+            image is empty %s", err)
     try:
         assert os.path.getsize(
             './images/results/classification_report_Random_Forest.png') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: The rf_results.png image is missing %s", err)
+        logging.error("FAIL train_models(): The rf_results.png image is \
+            missing %s", err)
     except AssertionError as err:
-        logging.error("FAIL: The rf_results.png image is empty %s", err)
+        logging.error("FAIL train_models(): The rf_results.png image is \
+            empty %s", err)
     try:
         assert os.path.getsize(
             './images/results/classification_report_Logistic_Regression.png'
@@ -192,18 +209,20 @@ def test_train_models(features):
     try:
         assert os.path.getsize('./images/results/roc_curve_result.png') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: The roc_curve_result image is missing %s", err)
+        logging.error("FAIL train_models(): The roc_curve_result \
+            image is missing %s", err)
     except AssertionError as err:
-        logging.error("FAIL: The roc_curve_result image is empty %s", err)
+        logging.error("FAIL train_models(): The roc_curve_result \
+            image is empty %s", err)
     try:
         assert os.path.getsize('./models/logistic_model.pkl') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: logistic_model is missing %s", err)
+        logging.error("FAIL train_models(): logistic_model is missing %s", err)
     except AssertionError as err:
-        logging.error("FAIL: logistic_model is empty %s", err)
+        logging.error("FAIL train_models(): logistic_model is empty %s", err)
     try:
         assert os.path.getsize('./models/rfc_model.pkl') > 1
     except FileNotFoundError as err:
-        logging.error("FAIL: rfc_model is missing %s", err)
+        logging.error("FAIL train_models(): rfc_model is missing %s", err)
     except AssertionError as err:
-        logging.error("FAIL: rfc_model is empty %s", err)
+        logging.error("FAIL train_models(): rfc_model is empty %s", err)

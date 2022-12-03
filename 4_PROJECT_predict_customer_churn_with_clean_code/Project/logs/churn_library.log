@@ -1,84 +1,34 @@
-2022-11-30 21:05:26 [    INFO] Opening ./data/bank_data.csv (churn_library.py:44)
-2022-11-30 21:05:26 [    INFO] SUCCESS: Read in 10127 rows of data (churn_library.py:47)
-2022-11-30 21:05:26 [    INFO] Creating target varible with name: churn (churn_library.py:52)
-2022-11-30 21:05:26 [    INFO] SUCCESS: created target variable. (churn_library.py:56)
-2022-11-30 21:05:26 [    INFO] Attempting to remove CLIENTNUM from dataframe. (churn_library.py:65)
-2022-11-30 21:05:26 [    INFO] SUCESS: Removed CLIENTNUM from df (churn_library.py:67)
-2022-11-30 21:05:26 [    INFO] Testing import_data: SUCCESS (churn_script_logging_and_tests.py:53)
-2022-11-30 21:05:26 [    INFO] Opening ./data/bank_data.csv (churn_library.py:44)
-2022-11-30 21:05:26 [    INFO] SUCCESS: Read in 10127 rows of data (churn_library.py:47)
-2022-11-30 21:05:26 [    INFO] Creating target varible with name: churn (churn_library.py:52)
-2022-11-30 21:05:26 [    INFO] SUCCESS: created target variable. (churn_library.py:56)
-2022-11-30 21:05:26 [    INFO] Attempting to remove CLIENTNUM from dataframe. (churn_library.py:65)
-2022-11-30 21:05:26 [    INFO] SUCESS: Removed CLIENTNUM from df (churn_library.py:67)
-2022-11-30 21:05:26 [    INFO] Starting EDA testing (churn_script_logging_and_tests.py:68)
-2022-11-30 21:05:26 [    INFO] Attempting churn view. (churn_library.py:89)
-2022-11-30 21:05:26 [    INFO] Attempting Customer_age view. (churn_library.py:98)
-2022-11-30 21:05:26 [    INFO] Attempting Marital_Status view. (churn_library.py:107)
-2022-11-30 21:05:27 [    INFO] Attempting Total_Trans_Ct view. (churn_library.py:117)
-2022-11-30 21:05:27 [    INFO] Attempting correlation heat map view. (churn_library.py:127)
-2022-11-30 21:05:27 [    INFO] Opening ./data/bank_data.csv (churn_library.py:44)
-2022-11-30 21:05:27 [    INFO] SUCCESS: Read in 10127 rows of data (churn_library.py:47)
-2022-11-30 21:05:27 [    INFO] Creating target varible with name: churn (churn_library.py:52)
-2022-11-30 21:05:27 [    INFO] SUCCESS: created target variable. (churn_library.py:56)
-2022-11-30 21:05:27 [    INFO] Attempting to remove CLIENTNUM from dataframe. (churn_library.py:65)
-2022-11-30 21:05:27 [    INFO] SUCESS: Removed CLIENTNUM from df (churn_library.py:67)
-2022-11-30 21:05:27 [    INFO] Starting encoder_helper test (churn_script_logging_and_tests.py:115)
-2022-11-30 21:05:27 [    INFO] Building list of categorical variables (churn_script_logging_and_tests.py:116)
-2022-11-30 21:05:27 [    INFO] Categorical List has at least 1 column (churn_script_logging_and_tests.py:121)
-2022-11-30 21:05:27 [    INFO] Starting to encode columns (churn_script_logging_and_tests.py:125)
-2022-11-30 21:05:27 [    INFO] Creating encoded column Gender (churn_library.py:164)
-2022-11-30 21:05:27 [    INFO] SUCCESS: created encoded Gender column. (churn_library.py:172)
-2022-11-30 21:05:27 [    INFO] Creating encoded column Education_Level (churn_library.py:164)
-2022-11-30 21:05:27 [    INFO] SUCCESS: created encoded Education_Level column. (churn_library.py:172)
-2022-11-30 21:05:27 [    INFO] Creating encoded column Marital_Status (churn_library.py:164)
-2022-11-30 21:05:27 [    INFO] SUCCESS: created encoded Marital_Status column. (churn_library.py:172)
-2022-11-30 21:05:27 [    INFO] Creating encoded column Income_Category (churn_library.py:164)
-2022-11-30 21:05:27 [    INFO] SUCCESS: created encoded Income_Category column. (churn_library.py:172)
-2022-11-30 21:05:27 [    INFO] Creating encoded column Card_Category (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Card_Category column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] SUCCESS: Encoder function ran. (churn_script_logging_and_tests.py:127)
-2022-11-30 21:05:28 [    INFO] Opening ./data/bank_data.csv (churn_library.py:44)
-2022-11-30 21:05:28 [    INFO] SUCCESS: Read in 10127 rows of data (churn_library.py:47)
-2022-11-30 21:05:28 [    INFO] Creating target varible with name: churn (churn_library.py:52)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created target variable. (churn_library.py:56)
-2022-11-30 21:05:28 [    INFO] Attempting to remove CLIENTNUM from dataframe. (churn_library.py:65)
-2022-11-30 21:05:28 [    INFO] SUCESS: Removed CLIENTNUM from df (churn_library.py:67)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Gender (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Gender column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Education_Level (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Education_Level column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Marital_Status (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Marital_Status column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Income_Category (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Income_Category column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Card_Category (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Card_Category column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Splitting DataFrame into Features and Target... (churn_library.py:201)
-2022-11-30 21:05:28 [    INFO] SUCCESS: Split dataframe into 19 "X" features and "y" target created. (churn_library.py:204)
-2022-11-30 21:05:28 [    INFO] Splitting data into Train and Test sets (churn_library.py:206)
-2022-11-30 21:05:28 [    INFO] SUCCESS: Data sets split into 7088 training rows and 3039 test rows. (churn_library.py:211)
-2022-11-30 21:05:28 [    INFO] Opening ./data/bank_data.csv (churn_library.py:44)
-2022-11-30 21:05:28 [    INFO] SUCCESS: Read in 10127 rows of data (churn_library.py:47)
-2022-11-30 21:05:28 [    INFO] Creating target varible with name: churn (churn_library.py:52)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created target variable. (churn_library.py:56)
-2022-11-30 21:05:28 [    INFO] Attempting to remove CLIENTNUM from dataframe. (churn_library.py:65)
-2022-11-30 21:05:28 [    INFO] SUCESS: Removed CLIENTNUM from df (churn_library.py:67)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Gender (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Gender column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Education_Level (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Education_Level column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Marital_Status (churn_library.py:164)
-2022-11-30 21:05:28 [    INFO] SUCCESS: created encoded Marital_Status column. (churn_library.py:172)
-2022-11-30 21:05:28 [    INFO] Creating encoded column Income_Category (churn_library.py:164)
-2022-11-30 21:05:29 [    INFO] SUCCESS: created encoded Income_Category column. (churn_library.py:172)
-2022-11-30 21:05:29 [    INFO] Creating encoded column Card_Category (churn_library.py:164)
-2022-11-30 21:05:29 [    INFO] SUCCESS: created encoded Card_Category column. (churn_library.py:172)
-2022-11-30 21:05:29 [    INFO] Splitting DataFrame into Features and Target... (churn_library.py:201)
-2022-11-30 21:05:29 [    INFO] SUCCESS: Split dataframe into 19 "X" features and "y" target created. (churn_library.py:204)
-2022-11-30 21:05:29 [    INFO] Splitting data into Train and Test sets (churn_library.py:206)
-2022-11-30 21:05:29 [    INFO] SUCCESS: Data sets split into 7088 training rows and 3039 test rows. (churn_library.py:211)
-2022-11-30 21:07:10 [    INFO] Starting classification report for Random_Forest (churn_library.py:241)
-2022-11-30 21:07:10 [    INFO] SUCCESS: Plot for type Random_Forest saved to ./images/results/ (churn_library.py:256)
-2022-11-30 21:07:10 [    INFO] Starting classification report for Logistic_Regression (churn_library.py:241)
-2022-11-30 21:07:10 [    INFO] SUCCESS: Plot for type Logistic_Regression saved to ./images/results/ (churn_library.py:256)
+2022-12-02 20:18:22 - root - INFO - Opening ./data/bank_data.csv
+2022-12-02 20:18:22 - root - INFO - SUCCESS: Read in 10127 rows of data
+2022-12-02 20:18:22 - root - INFO - Creating target varible with name: churn
+2022-12-02 20:18:22 - root - INFO - SUCCESS: created target variable.
+2022-12-02 20:18:22 - root - INFO - Attempting to remove CLIENTNUM from dataframe.
+2022-12-02 20:18:22 - root - INFO - SUCESS: Removed CLIENTNUM from df
+2022-12-02 20:18:22 - root - INFO - Attempting churn view.
+2022-12-02 20:18:22 - root - INFO - Attempting Customer_age view.
+2022-12-02 20:18:22 - root - INFO - Attempting Marital_Status view.
+2022-12-02 20:18:23 - root - INFO - Attempting Total_Trans_Ct view.
+2022-12-02 20:18:23 - root - INFO - Attempting correlation heat map view.
+2022-12-02 20:18:23 - root - INFO - Creating encoded column Gender
+2022-12-02 20:18:23 - root - INFO - SUCCESS: created encoded Gender column.
+2022-12-02 20:18:23 - root - INFO - Creating encoded column Education_Level
+2022-12-02 20:18:23 - root - INFO - SUCCESS: created encoded Education_Level column.
+2022-12-02 20:18:23 - root - INFO - Creating encoded column Marital_Status
+2022-12-02 20:18:24 - root - INFO - SUCCESS: created encoded Marital_Status column.
+2022-12-02 20:18:24 - root - INFO - Creating encoded column Income_Category
+2022-12-02 20:18:24 - root - INFO - SUCCESS: created encoded Income_Category column.
+2022-12-02 20:18:24 - root - INFO - Creating encoded column Card_Category
+2022-12-02 20:18:24 - root - INFO - SUCCESS: created encoded Card_Category column.
+2022-12-02 20:18:24 - root - INFO - Splitting DataFrame into Features and Target...
+2022-12-02 20:18:24 - root - INFO - SUCCESS: Split dataframe into 19 "X" features and "y" target created.
+2022-12-02 20:18:24 - root - INFO - Splitting data into Train and Test sets
+2022-12-02 20:18:24 - root - INFO - SUCCESS: Data sets split into 7088 training rows and 3039 test rows.
+2022-12-02 20:20:20 - root - INFO - Starting classification report for Random_Forest
+2022-12-02 20:20:20 - root - INFO - SUCCESS: Plot for type Random_Forest saved to ./images/results/
+2022-12-02 20:20:20 - root - INFO - Starting classification report for Logistic_Regression
+2022-12-02 20:20:20 - root - INFO - SUCCESS: Plot for type Logistic_Regression saved to ./images/results/
+2022-12-02 20:21:38 - root - INFO - Starting importance plot
+2022-12-02 20:21:38 - root - INFO - SUCCESS: collected 19 important features from model
+2022-12-02 20:21:38 - root - INFO - SUCCESS: Gather indices of features important features
+2022-12-02 20:21:38 - root - INFO - SUCCCSS: Gathered 19 feature names from data.
+2022-12-02 20:21:39 - root - INFO - SUCCESS: Plot stored at ./images/results/feature_importances.png
