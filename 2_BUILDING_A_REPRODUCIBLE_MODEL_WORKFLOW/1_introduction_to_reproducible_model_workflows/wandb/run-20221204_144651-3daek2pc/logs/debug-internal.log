@@ -1,0 +1,78 @@
+2022-12-04 14:46:51,392 INFO    StreamThr :469842 [internal.py:wandb_internal():88] W&B internal server running at pid: 469842, started at: 2022-12-04 14:46:51.392490
+2022-12-04 14:46:51,394 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: status
+2022-12-04 14:46:51,395 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: status
+2022-12-04 14:46:51,396 DEBUG   SenderThread:469842 [sender.py:send():303] send: header
+2022-12-04 14:46:51,396 DEBUG   SenderThread:469842 [sender.py:send():303] send: run
+2022-12-04 14:46:51,397 INFO    WriterThread:469842 [datastore.py:open_for_write():75] open: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/run-3daek2pc.wandb
+2022-12-04 14:46:51,642 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: check_version
+2022-12-04 14:46:51,653 INFO    SenderThread:469842 [dir_watcher.py:__init__():216] watching files in: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/files
+2022-12-04 14:46:51,653 INFO    SenderThread:469842 [sender.py:_start_run_threads():928] run started: 3daek2pc with start time 1670186811.390406
+2022-12-04 14:46:51,653 DEBUG   SenderThread:469842 [sender.py:send():303] send: summary
+2022-12-04 14:46:51,654 INFO    SenderThread:469842 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-04 14:46:51,654 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: check_version
+2022-12-04 14:46:51,761 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: run_start
+2022-12-04 14:46:51,791 ERROR   HandlerThread:469842 [gpu.py:is_available():351] Error initializing NVML: Driver Not Loaded
+2022-12-04 14:46:51,791 DEBUG   HandlerThread:469842 [system_info.py:__init__():31] System info init
+2022-12-04 14:46:51,792 DEBUG   HandlerThread:469842 [system_info.py:__init__():46] System info init done
+2022-12-04 14:46:51,792 INFO    HandlerThread:469842 [system_monitor.py:start():150] Starting system monitor
+2022-12-04 14:46:51,792 INFO    SystemMonitor:469842 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2022-12-04 14:46:51,792 INFO    HandlerThread:469842 [system_monitor.py:probe():168] Collecting system info
+2022-12-04 14:46:51,792 INFO    SystemMonitor:469842 [interfaces.py:start():168] Started cpu
+2022-12-04 14:46:51,792 INFO    SystemMonitor:469842 [interfaces.py:start():168] Started disk
+2022-12-04 14:46:51,793 INFO    SystemMonitor:469842 [interfaces.py:start():168] Started memory
+2022-12-04 14:46:51,793 INFO    SystemMonitor:469842 [interfaces.py:start():168] Started network
+2022-12-04 14:46:51,799 DEBUG   HandlerThread:469842 [system_info.py:probe():195] Probing system
+2022-12-04 14:46:51,800 DEBUG   HandlerThread:469842 [system_info.py:_probe_git():180] Probing git
+2022-12-04 14:46:51,806 DEBUG   HandlerThread:469842 [system_info.py:_probe_git():188] Probing git done
+2022-12-04 14:46:51,806 DEBUG   HandlerThread:469842 [system_info.py:probe():241] Probing system done
+2022-12-04 14:46:51,806 DEBUG   HandlerThread:469842 [system_monitor.py:probe():177] {'os': 'Linux-6.0.6-76060006-generic-x86_64-with-glibc2.35', 'python': '3.10.8', 'heartbeatAt': '2022-12-04T20:46:51.799418', 'startedAt': '2022-12-04T20:46:51.385463', 'docker': None, 'cuda': None, 'args': None, 'state': 'running', 'program': '/home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wanbd_test.py', 'codePath': '2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wanbd_test.py', 'git': {'remote': 'https://git.studioassistant.io/git/derrick/udacity-MLDevOps-engineering-course.git', 'commit': '76e7b269eb3e122d187ed00a56c7d3e77e6c9afe'}, 'email': 'derrickjameslewis@gmail.com', 'root': '/home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course', 'host': 'pop-os', 'username': 'derricklewis', 'executable': '/home/derricklewis/miniconda3/envs/mlops/bin/python', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 3803.02375, 'min': 400.0, 'max': 4700.0}, 'cpu_freq_per_core': [{'current': 3799.914, 'min': 400.0, 'max': 4700.0}, {'current': 3805.001, 'min': 400.0, 'max': 4700.0}, {'current': 3804.242, 'min': 400.0, 'max': 4700.0}, {'current': 3828.932, 'min': 400.0, 'max': 4700.0}, {'current': 3804.212, 'min': 400.0, 'max': 4700.0}, {'current': 3804.213, 'min': 400.0, 'max': 4700.0}, {'current': 3799.933, 'min': 400.0, 'max': 4700.0}, {'current': 3806.632, 'min': 400.0, 'max': 4700.0}, {'current': 3800.054, 'min': 400.0, 'max': 4700.0}, {'current': 3804.24, 'min': 400.0, 'max': 4700.0}, {'current': 3800.149, 'min': 400.0, 'max': 4700.0}, {'current': 3799.878, 'min': 400.0, 'max': 4700.0}], 'disk': {'total': 911.5755500793457, 'used': 140.84170532226562}, 'memory': {'total': 62.52009201049805}}
+2022-12-04 14:46:51,806 INFO    HandlerThread:469842 [system_monitor.py:probe():178] Finished collecting system info
+2022-12-04 14:46:51,806 INFO    HandlerThread:469842 [system_monitor.py:probe():181] Publishing system info
+2022-12-04 14:46:51,806 DEBUG   HandlerThread:469842 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2022-12-04 14:46:51,806 DEBUG   HandlerThread:469842 [system_info.py:_save_pip():67] Saving pip packages done
+2022-12-04 14:46:51,806 DEBUG   HandlerThread:469842 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2022-12-04 14:46:52,654 INFO    Thread-13 :469842 [dir_watcher.py:_on_file_created():275] file/dir created: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/files/conda-environment.yaml
+2022-12-04 14:46:52,655 INFO    Thread-13 :469842 [dir_watcher.py:_on_file_created():275] file/dir created: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/files/requirements.txt
+2022-12-04 14:46:52,655 INFO    Thread-13 :469842 [dir_watcher.py:_on_file_created():275] file/dir created: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/files/wandb-summary.json
+2022-12-04 14:46:54,044 DEBUG   HandlerThread:469842 [system_info.py:_save_conda():86] Saving conda packages done
+2022-12-04 14:46:54,045 INFO    HandlerThread:469842 [system_monitor.py:probe():183] Finished publishing system info
+2022-12-04 14:46:54,047 DEBUG   SenderThread:469842 [sender.py:send():303] send: files
+2022-12-04 14:46:54,047 INFO    SenderThread:469842 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-12-04 14:46:54,059 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-04 14:46:54,059 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: stop_status
+2022-12-04 14:46:54,062 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: pause
+2022-12-04 14:46:54,062 INFO    HandlerThread:469842 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2022-12-04 14:46:54,062 INFO    HandlerThread:469842 [system_monitor.py:finish():160] Stopping system monitor
+2022-12-04 14:46:54,063 DEBUG   SystemMonitor:469842 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2022-12-04 14:46:54,063 INFO    HandlerThread:469842 [interfaces.py:finish():173] Joined cpu
+2022-12-04 14:46:54,063 INFO    HandlerThread:469842 [interfaces.py:finish():173] Joined disk
+2022-12-04 14:46:54,063 DEBUG   SystemMonitor:469842 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2022-12-04 14:46:54,063 DEBUG   SystemMonitor:469842 [system_monitor.py:_start():141] Publishing last batch of metrics
+2022-12-04 14:46:54,063 INFO    HandlerThread:469842 [interfaces.py:finish():173] Joined memory
+2022-12-04 14:46:54,064 INFO    HandlerThread:469842 [interfaces.py:finish():173] Joined network
+2022-12-04 14:46:54,181 DEBUG   SenderThread:469842 [sender.py:send():303] send: telemetry
+2022-12-04 14:46:54,182 DEBUG   SenderThread:469842 [sender.py:send():303] send: stats
+2022-12-04 14:46:54,564 INFO    Thread-16 :469842 [upload_job.py:push():143] Uploaded file /tmp/tmpvvxqjq_0wandb/3ftnvprn-wandb-metadata.json
+2022-12-04 14:46:54,654 INFO    Thread-13 :469842 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/files/conda-environment.yaml
+2022-12-04 14:46:54,654 INFO    Thread-13 :469842 [dir_watcher.py:_on_file_created():275] file/dir created: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/files/wandb-metadata.json
+2022-12-04 14:47:09,186 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-04 14:47:09,187 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: stop_status
+2022-12-04 14:47:22,672 INFO    Thread-13 :469842 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wandb/run-20221204_144651-3daek2pc/files/config.yaml
+2022-12-04 14:47:23,893 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: resume
+2022-12-04 14:47:23,893 INFO    HandlerThread:469842 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2022-12-04 14:47:23,935 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: pause
+2022-12-04 14:47:23,935 INFO    HandlerThread:469842 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2022-12-04 14:47:24,298 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-04 14:47:24,299 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: stop_status
+2022-12-04 14:47:39,422 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-04 14:47:39,423 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: stop_status
+2022-12-04 14:47:45,696 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: resume
+2022-12-04 14:47:45,697 INFO    HandlerThread:469842 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2022-12-04 14:47:45,881 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: pause
+2022-12-04 14:47:45,881 INFO    HandlerThread:469842 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2022-12-04 14:47:54,587 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-04 14:47:54,587 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: stop_status
+2022-12-04 14:48:09,685 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-04 14:48:09,685 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: stop_status
+2022-12-04 14:48:24,778 DEBUG   HandlerThread:469842 [handler.py:handle_request():139] handle_request: stop_status
+2022-12-04 14:48:24,779 DEBUG   SenderThread:469842 [sender.py:send_request():317] send_request: stop_status

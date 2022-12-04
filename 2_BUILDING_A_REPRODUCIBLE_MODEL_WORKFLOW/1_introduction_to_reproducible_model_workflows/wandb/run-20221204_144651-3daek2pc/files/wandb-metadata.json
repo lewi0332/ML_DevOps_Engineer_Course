@@ -1,0 +1,97 @@
+{
+    "os": "Linux-6.0.6-76060006-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8",
+    "heartbeatAt": "2022-12-04T20:46:51.799418",
+    "startedAt": "2022-12-04T20:46:51.385463",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "/home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wanbd_test.py",
+    "codePath": "2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/1_introduction_to_reproducible_model_workflows/wanbd_test.py",
+    "git": {
+        "remote": "https://git.studioassistant.io/git/derrick/udacity-MLDevOps-engineering-course.git",
+        "commit": "76e7b269eb3e122d187ed00a56c7d3e77e6c9afe"
+    },
+    "email": "derrickjameslewis@gmail.com",
+    "root": "/home/derricklewis/Documents/Data Science/udacity-MLDevOps-engineering-course",
+    "host": "pop-os",
+    "username": "derricklewis",
+    "executable": "/home/derricklewis/miniconda3/envs/mlops/bin/python",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 3803.02375,
+        "min": 400.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3799.914,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3805.001,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3804.242,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3828.932,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3804.212,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3804.213,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3799.933,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3806.632,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3800.054,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3804.24,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3800.149,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3799.878,
+            "min": 400.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "total": 911.5755500793457,
+        "used": 140.84170532226562
+    },
+    "memory": {
+        "total": 62.52009201049805
+    }
+}
