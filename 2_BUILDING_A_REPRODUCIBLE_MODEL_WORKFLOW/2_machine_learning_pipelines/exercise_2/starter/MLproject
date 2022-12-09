@@ -1,0 +1,25 @@
+name: download_data
+conda_env: conda.yml
+
+entry_points:
+  main:
+    parameters:
+      file_url:
+        description: URL of the file to download
+        type: uri
+      artifact_name:
+        description: Name of the W&B artifact
+        type: str
+      artifact_type:
+        description: type of W&B artifact
+        type: str
+        default: raw_data
+      artifact_description:
+        description: description of the artifact for W&B
+        type: str
+    command: >-
+      python download_data.py \
+       --file_url {file_url} \
+       --artifact_name {artifact_name} \
+       --artifact_type {artifact_type} \
+       --artifact_description {artifact_description}
