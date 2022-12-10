@@ -1,0 +1,24 @@
+name: exercise_5
+conda_env: conda.yml
+entry_points:
+  main:
+    parameters:
+      input_artifact:
+        description: Name of W&B artifact to clean
+        type: str
+      artifact_name:
+        description: Name of the W&B artifact
+        type: str
+      artifact_type:
+        description: type of W&B artifact
+        type: str
+        default: raw_data
+      artifact_description:
+        description: description of the artifact for W&B
+        type: str
+    command: >-
+      python run.py \
+       --input_artifact {input_artifact} \
+       --artifact_name {artifact_name} \
+       --artifact_type {artifact_type} \
+       --artifact_description {artifact_description}
