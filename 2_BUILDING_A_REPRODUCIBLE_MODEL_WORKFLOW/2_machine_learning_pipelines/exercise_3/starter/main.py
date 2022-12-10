@@ -16,8 +16,8 @@ def go(config: DictConfig):
     root_path = hydra.utils.get_original_cwd()
 
     _ = mlflow.run(
-        os.path.join(root_path, "download_data"),
-        "main",
+        uri=os.path.join(root_path, "download_data"),
+        entry_point="main",
         parameters={
             "file_url": config["data"]["file_url"],
             "artifact_name": "iris.csv",
@@ -25,19 +25,14 @@ def go(config: DictConfig):
             "artifact_description": "Input data"
         },
     )
-
-    ##################
-    # Your code here: use the artifact we created in the previous step as input for the `process_data` step
-    # and produce a new artifact called "cleaned_data".
-    # NOTE: use os.path.join(root_path, "process_data") to get the path
-    # to the "process_data" component
-    ##################
+    
     _ = mlflow.run(
-        os.path.join(root_path, "process_data"),
+        uri=os.path.join(root_path, "process_data"),
+        entry_point='main',
         parameters={
             "input_artifact": "iris.csv:latest",
             "artifact_name": "cleaned_data",
-            "artifact_type": "raw_data",
+            "artifact_type": "clean_data",
             "artifact_description": "2d tsne"
         }
     )
