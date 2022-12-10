@@ -1,6 +1,6 @@
-*/wandb/*
-*/mlruns/*
-*/artifacts/*
+*wandb/
+*mlruns/
+*artifacts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -162,3 +162,4 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+/mlruns/0/5b9df0b37d924908aa4eaaa94e8d1626/tags/mlflow.gitRepoURL

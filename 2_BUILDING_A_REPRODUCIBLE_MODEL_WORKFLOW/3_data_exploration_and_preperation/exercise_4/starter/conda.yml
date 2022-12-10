@@ -1,0 +1,12 @@
+name: download_data
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab
+  - seaborn
+  - pandas
+  - pandas-profiling
+  - pyarrow
+  - wandb
+  - ipywidgets
