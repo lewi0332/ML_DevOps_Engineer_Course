@@ -222,3 +222,37 @@ You also need to take into account the multiple-hypothesis testing problem, espe
 
 `scipy` contains many [statistical tests](https://docs.scipy.org/doc/scipy/reference/stats.html#statistical-tests). If the one we need is not there, we can also look at [statsmodels](https://www.statsmodels.org/stable/stats.html).
 
+## Parameters in **Pytest**
+
+We can introduce parameters to the pyteset command line by using the conftest.py file.
+
+In this file we can add a special function called `pytest_addoption` and use a spencial fixture made available by `pytest`, called `parser`, like this:
+
+```
+def pytest_addoption(parser):
+    parser.addoption("--input_artifact", action="store")
+```
+
+The `.addoption` method of the `parser` object adds an option that is going to available on the command line. By having this code in `conftest.py` qw can now run pytest as:
+
+```
+> pytest. -vv --input_artifact ecample/my_artifact:latest
+```
+
+We can now use that option value in tests and other fixtures. This is an example where we modify the `data` fixture we have seen before tto use the value of the `--inpurt_artifact` option:
+
+```
+import pytest
+import pandas as pd
+
+def pytest_addoption(parser):
+    parser.addoption("--input_artifact", action="store")
+
+@pytest.fixture(scope="session"
+def data(request):
+    input_artifact = request.config.option.input_artifact
+    if input_artifact is None:
+        pytest.fail("--input_artifact missing on command line")
+    local_path = run.use_artifact(input_artifact).file()
+    return pd.read_csv(local_path)
+```
