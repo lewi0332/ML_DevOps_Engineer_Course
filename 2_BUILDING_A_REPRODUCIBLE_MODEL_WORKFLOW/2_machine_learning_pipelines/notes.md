@@ -200,3 +200,72 @@ When running from a remote Git repository, you can specify a release or branch b
 ```
 mlflow run git@github.com/myusername/my_repo.git -b 1.2.3
 ```
+
+## Linking Together the Components
+The structure of an ML pipeline int MLflow is the following:
+
+![ML pipeline dag](./images/ml-pipeline.png)
+
+We have a main script. which we will called `main.py`, that contains several calls to `mlflow.run`, one for each component to call. `mlflow.run` is the equivalent of the command `mlflow run` and it allows to run a component from a script. Each component is called from the main script and it produces one ore more output artifacts that are stored in the artifact store (W&B for us). The output of one component becomes the input to the next. So the artifacts are the glue linking together the components into the pipeline. Of course, while in this example we have one output from each component, a component can create as many output artifacts as needed. A component can also receive in input as many artifacts as needed.
+
+This is how you run an MLflow component using `mlflow.run`
+
+```
+import mlflow
+
+mlflow.run(
+  # URI can be a local path or the URL to a git repository
+  # here we are going to use a local path
+  uri="my_project",
+  # Entry point to call
+  entry_point="main",
+  # Parameters for that entry point
+  parameters={
+    "file_url": "https://...",
+    "artifact_name": "my_data.csv"
+  }
+)
+```
+
+This is equivalent to the following command from the command line:
+
+```
+mlflow run my_project -e main -P file_url="https://..." -P artifact_name="my_data.csv"
+```
+
+Then, a complete ML pipeline written with the MLflow looks like this: 
+
+![ML directory example](./images/ml-pipeline-dir.png)
+
+We have a project containing the main script (`main.py`) as well as the `conda.yml` and `MLproject` file for the main script. Then we have one subdirectory for each component. Each subdirectory is a MLflow project, i.e., it contains the code as well as the relative conda.yml and MLproject files.
+
+For a pipeline like this, the `main.py` file could look like:
+
+```
+import mlflow
+
+mlflow.run(
+  uri="download_data",
+  entry_point="main",
+  parameters={
+    "file_url": "https://...",
+    "output_artifact": "raw_data.csv"
+  }
+)
+
+mlflow.run(
+  uri="remove_duplicates",
+  entry_point="main",
+  parameters={
+    "input_artifact": "raw_data.csv:latest",
+    "output_artifact": "clean_data.csv"
+  }
+)
+```
+
+A few things to note:
+
+1. The output artifact of the first step (`raw_data.csv`) becomes the input of the next step
+2. Let's look at the second component, `remove_duplicates`. Since we are using W&B, we have to specify the version when indicating an input artifact, so we say `raw_data.csv:latest` and not just `raw_data.csv`. The special tag latest indicates that we want to use the latest available version, which is the one that was just produced by the previous step. If we want to use a specific version, we can say for example `raw_data.csv:v2` to use version 2.
+
+### Pipeline configuration

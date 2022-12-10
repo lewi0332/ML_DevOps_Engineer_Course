@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/derricklewis/Documents/Flatiron/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/2_machine_learning_pipelines/exercise_2/mlruns/0/f4d870eeb5404479a972bcc9114aaf9e/artifacts
+end_time: 1670591630195
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f4d870eeb5404479a972bcc9114aaf9e
+run_name: treasured-yak-16
+run_uuid: f4d870eeb5404479a972bcc9114aaf9e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1670591463807
+status: 3
+tags: []
+user_id: derricklewis

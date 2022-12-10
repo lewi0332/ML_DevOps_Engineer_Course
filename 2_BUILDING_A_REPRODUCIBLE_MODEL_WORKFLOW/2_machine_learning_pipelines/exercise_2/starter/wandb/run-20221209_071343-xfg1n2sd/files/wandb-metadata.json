@@ -1,0 +1,31 @@
+{
+    "os": "macOS-13.0.1-arm64-arm-64bit",
+    "python": "3.9.15",
+    "heartbeatAt": "2022-12-09T13:13:45.029802",
+    "startedAt": "2022-12-09T13:13:43.911221",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--file_url",
+        "https://raw.githubusercontent.com/scikit-learn/scikit-learn/4dfdfb4e1bb3719628753a4ece995a1b2fa5312a/sklearn/datasets/data/iris.csv",
+        "--artifact_name",
+        "iris",
+        "--artifact_type",
+        "raw_data",
+        "--artifact_description",
+        "This data sets consists of 3 different types of irises\u2019 (Setosa, Versicolour, and Virginica) petal and sepal length"
+    ],
+    "state": "running",
+    "program": "/Users/derricklewis/Documents/Flatiron/udacity-MLDevOps-engineering-course/2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/2_machine_learning_pipelines/exercise_2/starter/download_data.py",
+    "codePath": "2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/2_machine_learning_pipelines/exercise_2/starter/download_data.py",
+    "git": {
+        "remote": "https://git.studioassistant.io/git/derrick/udacity-MLDevOps-engineering-course.git",
+        "commit": "da2374d0defbd1e8ba4c07beaddd6545212d326e"
+    },
+    "email": "derrickjameslewis@gmail.com",
+    "root": "/Users/derricklewis/Documents/Flatiron/udacity-MLDevOps-engineering-course",
+    "host": "Derricks-MBP.lan",
+    "username": "derricklewis",
+    "executable": "/Users/derricklewis/miniconda3/envs/mlflow-9ee042298a73122eb5d3f1e358c4843fa3e5b855/bin/python"
+}
