@@ -384,3 +384,51 @@ if __name__ == "__main__":
 ```
 
 NOTE: this will only work if the components do NOT set the experiment name and the project on their own when calling wandb.init.
+
+## Conda vs. Docker
+
+MLflow supports an alternative to `conda` to define the runtime environment for our components, i.e., Docker containers. These are the main points of containers:
+
+1. A container is an entire runtime environment, including the application that needs to run as well as all its dependencies and configuration files.
+2. Containers can be started very quickly, much faster than virtual machines, and consume less resources
+3. A container behaves exactly the same independently of the host executing it, and does not rely on any software on the host (beyond Docker itself)
+
+See [here](https://docs.docker.com/get-started/overview/) for an introduction to Docker, and [here](https://www.mlflow.org/docs/latest/projects.html#specifying-an-environment) to see how the environment of an MLflow project can be defined using Docker instead of conda.
+
+There are some situations where using a Docker container for your MLflow projects might make sense. We will see some example in future videos, especially in the context of Kubernetes.
+
+### Running in the Cloud
+
+We have different options to run MLflow projects in the cloud:
+
+1. Using Databricks: if you have an enterprise deployment of Databricks, you can run all your MLflow-based pipeline and components by using the `-b` option of `mlflow run` (or the equivalent for the Python `mlflow.run`). See [here](https://docs.databricks.com/applications/mlflow/projects.html#run-mlflow-projects-on-databricks) for more details.
+2. Manual execution: you spin up an instance in the cloud using the tools of your cloud provider, then you execute the pipeline on that instance. All major cloud vendors provide a way to automate this process.
+3. Use Hydra launchers (see the `launchers` section in the [hydra documentation](https://hydra.cc/docs/intro)). They support at the moment Joblib (one node, several cpus), Ray, Redis Queue and SLURM
+4. Kubernetes without Kubeflow: you can generate a docker container with `conda` and then run the entire pipeline with one `mlflow run` command. This is very easy, but not optimal because the entire pipeline will run sequentially within the same container. The MLflow docs describe also another less manual method [here](https://www.mlflow.org/docs/latest/projects.html#run-an-mlflow-project-on-kubernetes-experimental).
+5. Kubernetes with Kubeflow: an introduction to Kubeflow is beyond the scope here. Assuming you are familiar with it, you can generate a Docker image with `conda` and `mlflow` and then use that to define the steps of your Kubeflow pipeline. Each step just executes the corresponding `mlflow run` command. You can then stitch together the steps using the normal Kubeflow syntax. In other words, the Kubeflow pipeline definition takes the place of our main script (the one we called `main.py`). See the Kubeflow [documentation](https://www.kubeflow.org/docs/components/pipelines/sdk/build-pipeline) for details on how to define these pipelines.
+
+
+## Glossary
+
+**Artifact**: The product of a pipeline component. It can be a file (an image, a model export, model weights, a text file...) or a directory.
+
+**Component**: One step in a Machine Learning Pipeline. In MLflow, a component is characterized by an environment file (conda.yml if you are using conda), an entry point definition file (MLproject) and one or more scripts or commands to be executed and their supporting code.
+
+**Container**: A technology to package together the entire runtime of a software, i.e., the code itself and all its dependencies and data files. Containers can be spun up quickly, and they run identically across different environments.
+
+**Data Segregation**: The process of splitting the data, for example into train and test sets.
+
+**Environment** (runtime): The environment where a software runs. In mlflow it is described by the conda.yml file (or the equivalent Dockerfile if using Docker).
+
+**Experiment**: A tracked and controlled execution of one or more related software components, or an entire pipeline. In W&B the experiment is called group.
+
+**Hyperparameters**: The parameters of a model that are set by the user and do not vary during the optimization or fit. They cannot be estimated from the data.
+
+**Job Type**: Used by W&B to distinguish different components when organizing the ML pipeline. It is mostly used for the visualization of the pipeline.
+
+**Machine Learning Pipeline:** A sequence of one or more components linked together by artifacts, and controlled by hyperparameters and/or configurations. It should be tracked and reproducible.
+
+**Project:** All the code, the experiments and the data that are needed to reach a particular goal, for example, a classification of cats vs dogs.
+
+**Run**: The minimal unit of execution in W&B and in all tracking software. It usually represents the execution of one script or one notebook, but it can sometimes contain more; for example, one script that spawns other scripts.
+
