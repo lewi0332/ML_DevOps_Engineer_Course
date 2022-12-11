@@ -12,7 +12,7 @@ from mlflow.models import infer_signature
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import roc_auc_score, plot_confusion_matrix
+from sklearn.metrics import roc_auc_score, ConfusionMatrixDisplay
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OrdinalEncoder, StandardScaler, FunctionTransformer
 import matplotlib.pyplot as plt
@@ -67,7 +67,7 @@ def go(args):
     fig_feat_imp = plot_feature_importance(pipe)
 
     fig_cm, sub_cm = plt.subplots(figsize=(10, 10))
-    plot_confusion_matrix(
+    ConfusionMatrixDisplay.from_estimator(
         pipe,
         X_val,
         y_val,
@@ -108,6 +108,21 @@ def export_model(run, pipe, X_val, val_pred, export_artifact):
 
         # Make sure the artifact is uploaded before the temp dir
         # gets deleted
+        mlflow.sklearn.save_model(
+            pipe,  # our pipeline
+            export_path,  # Path to a directory for the produced package
+            signature=signature,  # input and output schema
+            input_example=X_val.iloc[:5],  # the first few examples
+            serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE)
+
+        artifact = wandb.Artifact(
+            export_artifact,
+            type="model_export",
+            description="Random Forest pipeline export",
+        )
+
+        artifact.add_dir(export_path)
+        run.log_artifact(artifact)
         artifact.wait()
 
 
