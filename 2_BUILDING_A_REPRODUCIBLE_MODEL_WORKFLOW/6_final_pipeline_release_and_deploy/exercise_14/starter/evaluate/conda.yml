@@ -1,0 +1,13 @@
+name: download_data
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - plotly
+  - pillow
+  - mlflow
+  - wandb=0.12.17
+  # - protobuf=3.20
