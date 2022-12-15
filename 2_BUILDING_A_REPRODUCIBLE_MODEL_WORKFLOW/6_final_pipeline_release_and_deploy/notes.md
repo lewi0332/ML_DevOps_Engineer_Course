@@ -101,3 +101,5 @@ Inference artifacts in the "MLflow models" format can be used with several tools
 **Semantic Versioning:** A common schema for versioning releases. A release version is made of 3 numbers, like 1.3.8, called respectively major, minor, and patch. The major number should be incremented for large, backward-incompatible changes. The minor number should be incremented when new features are added in a backward-compatible way. The patch number should be incremented for bug fixes and other small backward-compatible changes.
 
 **Deployment**: The operation of taking an inference artifact and putting it into production, so it can serve results to stakeholders and customers.
+
+![Full pipeline roadmap](./images/ml-devops-c2-outline.png)
