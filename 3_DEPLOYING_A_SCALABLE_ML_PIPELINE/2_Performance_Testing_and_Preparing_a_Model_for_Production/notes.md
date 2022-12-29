@@ -200,3 +200,14 @@ The original data set has 1728 rows, and a 75-25 split was used to break this in
 
 According to Aequitas bias is present at the unsupervised and supervised level. This implies an unfairness in the underlying data and also unfairness in the model. From Aequitas summary plot we see bias is present in only some of the features and is not consistent across metrics.
 
+# Lesson Recap
+
+In this lesson, we reviewed validation sets and K-Fold Cross-Validation. With that in mind, we went into **data slicing**, which is akin to looking to looking at vertical slices of the data that are focused instead of horizontal comprehensive slices. We also discussed how data always has the potential to be biased and looking at slices could help indicate this. Furthermore, there is a growing number of tools specifically designed for looking at **bias**, such as **Aequitas**. Lastly, we looked at **model cards** which provide a tidy way to provide documentation for a trained (and deployed) model.
+
+- Review Validation Sets and K-Fold Cross-Validation
+- Data Slicing
+- Data Slicing Use Cases and Testing
+- Model Bias
+- The Aequitas Package
+- Model Cards
+
