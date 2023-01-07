@@ -1,4 +1,2 @@
-udacity-MLDevOps-engineering-course
+Udacity-MLDevOps-engineering-course
 ===============
-
-Derrick's MLops course (needed private repo.. thanks Steve)
