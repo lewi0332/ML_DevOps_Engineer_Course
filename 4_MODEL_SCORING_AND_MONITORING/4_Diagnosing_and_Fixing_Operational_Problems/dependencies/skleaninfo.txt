@@ -1,0 +1,10 @@
+Name: scikit-learn
+Version: 0.24.1
+Summary: A set of python modules for machine learning and data mining
+Home-page: http://scikit-learn.org
+Author: None
+Author-email: None
+License: new BSD
+Location: /root/miniconda3/lib/python3.7/site-packages
+Requires: numpy, scipy, threadpoolctl, joblib
+Required-by: sklearn

@@ -466,4 +466,18 @@ with mlflow.run() as run:
 
 **Inference Pipeline:** A pipeline constituted of two steps: the pre-processing step and the model. The pre-processing step can be a pipeline on its own, and it manipulates the data and prepares them for the model. The inference pipeline should contain all the pre-processing that needs to happen during model development as well as during production. When the inference pipeline is trained (i.e., it contains a trained model) it can be exported to disk. The export product is called an Inference Artifact.
 
+Remove excess MLFlow conda envs:
+```
+ #!/bin/bash
+ 
+ echo "Removing all conda environments with prefix 'mlflow-'"
+ 
+ conda env list | cut -d " " -f1 | while read -r env ; do
+     echo "Processing $env"
+     if [[ $env == mlflow-* ]]; then
+         conda env remove -n $env
+     fi  
+ done
+```
+
 
