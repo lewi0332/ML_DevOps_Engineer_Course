@@ -302,3 +302,56 @@ Checkout [this README](https://github.com/evidentlyai/evidently/blob/main/README
 
 [Forked Repository of the project here](https://github.com/lewi0332/ML_DevOps_Model_Scoring_and_Drift_Using_Evidently)
 
+## Historical Data Drift
+
+In this tutorial, we will calculate and visualize historical data drift, which tells us how data has changed. We have used the UCI Bike Sharing dataset for this tutorial.
+
+[Forked Repository of the project here](https://github.com/lewi0332/ML_DevOps_Historical_Data_Drift)
+
+
+## Lesson Review
+
+**Summary**
+
+In this lesson, we learned how to score models and check for model drift. We covered all of the following topics:
+
+- Automatic model scoring: how to read data and score models automatically
+- Recording model scores: how to keep persistent records of model scores in your workspace
+- Model drift: how to perform several different tests to check for model drift
+- Hypothesis testing: how to use statistical tests to compare two different models
+
+These skills are very important for all ML projects. By scoring models, you can ensure that they're up-to-date, and as accurate as possible.
+
+![Lesson Recap](images/screen-shot-2021-04-26-at-10.25.49-am.png)
+
+**Glossary**
+
+For your reference, here are all the new terms we introduced in this lesson:
+
+- **F1 score:** a common metric for measuring classification accuracy (higher scores are better).
+- **reshape():** a method for changing the shape of data to prepare it for ML predictions.
+- **r-squared:** a metric used to measure model performance for regressions (between 0 and 1, the higher the better)
+- **sum of squared errors (SSE):** a metric used to measure model performance for regressions: (0 or higher, the lower the better)
+- **raw comparison test:** a test for model drift that consists of checking whether a new model score is worse than all previous scores
+- **parametric significance test:** a test model drift that consists of checking whether a new model score is more than 2 standard deviations worse than the mean of all previous scores
+- **non-parametric outlier test:** a test for model drift that consists of checking whether a new score is more than 1.5 interquartile ranges worse than the 25th or 75th percentile of previous scores
+- **standard deviation:** a measure of how far spread apart the observations in a dataset are
+- **interquartile range:** the difference between the 75th percentile and the 25th percentile of a set of observations
+- **p-value:** a numerical result from a t-test used to determine whether two sets of numbers differ
+- **t-test:** a statistical test for comparing two sets of numbers
+- s**tatistical significance:** a concept describing the degree of evidence that two sets differ
+
+For your reference, here are all the new terms we introduced in L4:
+
+- **latency:** Latency refers to the time delay in a program or the amount of time one part of your program has to wait for another part. If your processes take a long time to execute, it can cause latency in your project, and this could cause problems.
+- **timestamp:** a timestamp is a representation of a specific date and time in a standard format. Modules related to time and timing often record timestamps to keep track of when processes begin and end.
+- **timeit:** the name of the module that we've used as a timer in this lesson.
+- **integrity:** a dataset's state of being fully intact, with no missing or invalid entries
+- **stability:** the similarity of data values between consecutive versions of datasets
+- **dependencies:** 3rd-party modules that Python scripts import and depend on.
+- **pip:** the Python package installer. You can use this tool from the workspace to install modules and check information about installed modules.
+- **data imputation:** replacing missing entries with educated guesses about true values
+- **mean imputation:** using column means to replace missing data entries
+
+
+
