@@ -3,7 +3,7 @@ Udacity Machine Learning DevOps Engineering Course
 
 [Nanodegree Program - Machine Learning DevOps Engineer](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821)
 
-This repository covers the course work building the DevOps skills required to automate the various aspects and stages of machine learning model building and monitoring.
+This repository covers the coursework building DevOps skills required to automate the various aspects and stages of machine learning model building and monitoring.
 
 The course covered 4 core topics to prepare machine learning code for production in a scalable real-world environments.
 
@@ -34,6 +34,10 @@ Document skills that are essential for deploying production machine learning mod
 This course empowers the students to be more efficient, effective, and productive in modern, real-world ML projects by adopting best practices around reproducible workflows. In particular, it teaches the fundamentals of MLops and how to: a) create a clean, organized, reproducible, end-to-end machine learning pipeline from scratch using MLflow b) clean and validate the data using pytest c) track experiments, code, and results using GitHub and Weights & Biases d) select the best-performing model for production and e) deploy a model using MLflow. Along the way, it also touches on other technologies like Kubernetes, Kubeflow, and Great Expectations and how they relate to the content of the class.
 
 [Notes and Lessons - Tracking and Reproducing Model Workflow](2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW)
+
+<p align="center">
+<img src=2_BUILDING_A_REPRODUCIBLE_MODEL_WORKFLOW/5_training_validaion_and_experiment_tracking/images/flowchart.png width="550">
+</p>
 
 >### Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC
 >
@@ -75,17 +79,5 @@ This course will help students automate the devops processes required to score a
 
 >[PROJECT REPOSITORY - Automated Model Scoring and Monitoring](https://github.com/lewi0332/ML_DevOps_ML_Model_Scoring_and_Monitoring)
 
-
-
 ---
 
-```mermaid
-sequenceDiagram
-    participant A as Alice
-    participant John
-
-    A->>+John: Hello John, how are you?
-    Bob->>+John: John, can you hear me?
-    John-->>-Bob: Hi Bob, I can hear you!
-    John-->>-Bob: I feel great!
-```
